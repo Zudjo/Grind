@@ -1,0 +1,14 @@
+
+# TO DO
+
+- Differenza di carico
+- RPE sia prima che dopo
+- Registrare RPE per ogni serie
+- ?Sistema il giorno
+- Ripetizioni che non sono ripetizioni ma sono a tempo
+- Sessioni e settimane in un foglio
+- Sessioni in verticale e settimane in orizzontale
+- Obiettivo principale dell'app: registrare e visualizzare l'andamento delle prestazioni
+- Progressioni di serie e altro (carico, ripetizioni, tempo sotto tensione)
+- Problema "(virgolette) usate per indicare i secondi
+- Ripetizioni non numero presciso, es: 6/8 o 5/9 etc
