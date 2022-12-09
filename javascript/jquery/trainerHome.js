@@ -14,6 +14,7 @@ $(document).ready(function(){
   $("#programsSelect").change(function(){
     ajaxPrintProgram();
     ajaxPrintSessionsSelect();
+    $("#exerciseFactors").html("");
 
   });
 
