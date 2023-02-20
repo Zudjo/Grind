@@ -41,15 +41,9 @@
               FROM trainers_credentials WHERE trainers_credentials.username = \"$username\"";
 
     $result = getQueryResult($query);
-
-    echo is_object($result);
-
-
+    
     if (is_object($result) && $result->num_rows === 1) {
       $row = $result->fetch_assoc();
-      echo $row["password"];
-      echo "<br>";
-      echo $password;
       if ($row["password"] === $password) {
         return 1;
       }

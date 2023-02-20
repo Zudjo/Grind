@@ -49,10 +49,10 @@
         $sessionId = Session::setId(null);
         for ($i=0; $i < $this->nSessions; $i++) {
           $session = new Session($sessionId, $this->programId, "Session");
-          echo "Session added.";
           $this->sessions[] = $session;
           $sessionId++;
         }
+        echo "Sessions added.";
       }
 
     }
