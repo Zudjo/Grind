@@ -62,7 +62,6 @@ function ajaxPrintProgramsSelect() {
 
 function ajaxPrintProgram() {
   let selectedProgramId = $("#programsSelect option:selected").val();
-
   // Print program from programId selected in selectPrograms
   let jqxhr = $.post(
     "./php/ajaxFunctions.php",

@@ -12,3 +12,5 @@
 - Progressioni di serie e altro (carico, ripetizioni, tempo sotto tensione)
 - Problema "(virgolette) usate per indicare i secondi
 - Ripetizioni non numero presciso, es: 6/8 o 5/9 etc
+
+- funzione printAsTable() Session.php | Problema rowspan e stampare esercizi in fila

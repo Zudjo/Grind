@@ -1,6 +1,0 @@
-RewriteEngine on
-RewriteRule ^grind/log-in$ grind/logIn.php
-RewriteRule ^grind/sign-in$ grind/signIn.php
-RewriteRule ^grind/home-trainer$ grind/trainerHome.php
-RewriteRule ^grind/home$ grind/home.php
-RewriteRule ^grind/$ grind/home.php
