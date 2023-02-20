@@ -48,4 +48,6 @@
   Notes:
   <input type="string" name="notes[]" required>
 </label>
+
+<input type="number" name="week[]" value="<?php echo $week; ?>" hidden>
 </div>

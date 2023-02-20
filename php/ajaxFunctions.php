@@ -13,6 +13,8 @@ require("./classes/User.php");
 require("./classes/Athlete.php");
 require("./classes/Trainer.php");
 
+// $x = $_POST["func"];
+// echo "<script type='text/javascript'>alert('$x');</script>";
 // Executing the function in the "func" parameter
 $_POST["func"]();
 
@@ -49,10 +51,8 @@ function printSessionsSelect() {
 
 function printProgram() {
   $programId = $_POST["programId"];
-
   if ($programId != "") {
     $result = getAthleteProgramFromId($programId);
-
     if ($result) {
       $programs = getProgramObjectsArrayFromResult($result);
       printPrograms($programs);
@@ -127,8 +127,8 @@ function printPrograms($programs) {
 }
 
 function printExercisesFactors($nWeeks) {
-  for ($i=1; $i <= $nWeeks; $i++) {
-    echo "<b>Week " . $i . "</b><br>";
+  for ($week=1; $week <= $nWeeks; $week++) {
+    echo "<b>Week " . $week . "</b><br>";
     require("../templates/exerciseFactors.php");
     echo "<br><br>";
   }

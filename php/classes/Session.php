@@ -60,30 +60,69 @@
     public function printAsTable($nWeeks) {
       $query = "SELECT * FROM exercises WHERE sessionId = $this->sessionId";
       $result = getQueryResult($query);
+      $exercises = "<tr>";
+      $rowspan = 1;
 
 
       if (is_object($result) and $result->num_rows > 0) {
-        $rowspan = $result->num_rows / $nWeeks + 1;
+
+        // $rowspan = $result->num_rows / $nWeeks + 1;
+        //
+        // echo "<th rowspan = " . $rowspan . ">" . $this->name . "</th>";
+        //
+        // echo "<tr>";
+        $rowspan++;
+        $counter = 1;
+        while($row = $result->fetch_assoc()) {
+          if ($counter > $row["week"]) {
+            $counter = 1;
+            $rowspan++;
+            $exercises .= "</tr><tr>";
+          }
+          while($counter < $row["week"]) {
+            $exercises .= Exercise::printAsEmptyTable();
+            $counter++;
+          }
+
+          $exercise = new Exercise($row["exerciseId"], $row["sessionId"], $row["muscle"],
+          $row["name"], $row["series"], $row["repetitions"], $row["seconds"],
+          $row["weight"], $row["rpe"], $row["recovery"], $row["notes"], $row["week"]);
+
+          $exercises .= $exercise->printAsTable();
+          $counter++;
+        }
 
         echo "<th rowspan = " . $rowspan . ">" . $this->name . "</th>";
 
-        echo "<tr>";
-
-        while ($row = $result->fetch_assoc() and $row["week"] <= $nWeeks) {
-
-          $exercise = new Exercise($row["exerciseId"], $row["sessionId"], $row["muscle"],
-            $row["name"], $row["series"], $row["repetitions"], $row["seconds"],
-            $row["weight"], $row["rpe"], $row["recovery"], $row["notes"], $row["week"]);
-
-          $exercise->printAsTable();
-
-          if ($row["week"] == $nWeeks) {
-            echo "</tr>";
-            echo "<tr>";
-          }
-
-        }
+        echo $exercises;
         echo "</tr>";
+
+
+
+        //
+        //
+        // for ($counter=1; $counter <= $nWeeks; $counter++) {
+        //   $row = $result->fetch_assoc();
+        //   // $ = $row["week"];
+        //   // echo "<script>console.log('row-week: $x')</script>";
+        //   // echo "<script>console.log('counter: $counter')</script>";
+        //   while($row["week"] != $counter) {
+        //     // echo "<script>console.log('A')</script>";
+        //     Exercise::printAsEmptyTable();
+        //     $counter++;
+        //   }
+        //
+        //   // echo "<script>console.log('B')</script>";
+        //   $exercise = new Exercise($row["exerciseId"], $row["sessionId"], $row["muscle"],
+        //   $row["name"], $row["series"], $row["repetitions"], $row["seconds"],
+        //   $row["weight"], $row["rpe"], $row["recovery"], $row["notes"], $row["week"]);
+        //
+        //   $exercise->printAsTable();
+        // }
+
+      echo "</tr>";
+      echo "<tr>";
+      echo "</tr>";
 
       } else {
         echo "<tr>";

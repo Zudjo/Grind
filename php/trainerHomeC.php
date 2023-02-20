@@ -47,7 +47,7 @@
       $exercise = new Exercise(null, $_POST["sessionId"], $_POST["muscle"][$key],
         $_POST["name"][$key], $_POST["series"][$key], $_POST["repetitions"][$key],
         $_POST["seconds"][$key], $_POST["weight"][$key], $_POST["rpe"][$key],
-        $_POST["recovery"][$key], $_POST["notes"][$key], $key+1);
+        $_POST["recovery"][$key], $_POST["notes"][$key], $_POST["week"][$key]);
 
         if(!$exercise->addToDb()) {
           //header("Location: ./home-trainer");

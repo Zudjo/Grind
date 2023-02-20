@@ -97,15 +97,31 @@
     }
 
     public function printAsTable() {
-      echo "<td>" . $this->muscle . "</td>";
-      echo "<td>" . $this->name . "</td>";
-      echo "<td>" . $this->series . "</td>";
-      echo "<td>" . $this->repetitions . "</td>";
-      echo "<td>" . $this->seconds . "</td>";
-      echo "<td>" . $this->weight . "</td>";
-      echo "<td>" . $this->rpe . "</td>";
-      echo "<td>" . $this->recovery . "</td>";
-      echo "<td>" . $this->notes . "</td>";
+      $s = "";
+      $s .= "<td>" . $this->muscle . "</td>";
+      $s .= "<td>" . $this->name . "</td>";
+      $s .= "<td>" . $this->series . "</td>";
+      $s .= "<td>" . $this->repetitions . "</td>";
+      $s .= "<td>" . $this->seconds . "</td>";
+      $s .= "<td>" . $this->weight . "</td>";
+      $s .= "<td>" . $this->rpe . "</td>";
+      $s .= "<td>" . $this->recovery . "</td>";
+      $s .= "<td>" . $this->notes . "</td>";
+      return $s;
+    }
+
+    public static function printAsEmptyTable() {
+      $s = "";
+      $s .= "<td></td>";
+      $s .= "<td></td>";
+      $s .= "<td></td>";
+      $s .= "<td></td>";
+      $s .= "<td></td>";
+      $s .= "<td></td>";
+      $s .= "<td></td>";
+      $s .= "<td></td>";
+      $s .= "<td></td>";
+      return $s;
     }
   }
 
